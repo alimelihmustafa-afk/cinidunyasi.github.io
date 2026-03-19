@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ÇİNİ DÜNYASI — El Yapımı Geleneksel Çiniler</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Crimson+Pro:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cobalt: #1a3a5c;
+    --cobalt-light: #2d5a8e;
+    --terracotta: #c4612a;
+    --terracotta-light: #e8884a;
+    --ivory: #f5f0e8;
+    --ivory-dark: #e8e0d0;
+    --gold: #c9a227;
+    --gold-light: #e8c44a;
+    --deep: #0d1f35;
+    --cream: #faf7f2;
+    --text: #1a1510;
+    --text-light: #5a4e42;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Crimson Pro', Georgia, serif;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--deep);
+    position: sticky; top: 0; z-index: 100;
+    border-bottom: 2px solid var(--gold);
+  }
+  .header-inner {
+    max-width: 1400px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem;
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; font-weight: 900;
+    color: var(--ivory);
+    letter-spacing: 0.08em;
+    padding: 1.2rem 0;
+    text-decoration: none;
+  }
+  .logo span { color: var(--gold); }
+  nav { display: flex; gap: 2rem; align-items: center; }
+  nav a {
+    color: var(--ivory-dark);
+    text-decoration: none;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    font-family: 'DM Mono', monospace;
+    font-weight: 300;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--gold); }
+  .cart-btn {
+    background: var(--gold);
+    color: var(--deep) !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2px;
+    font-weight: 400 !important;
+  }
+  .cart-btn:hover { background: var(--gold-light) !important; color: var(--deep) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 90vh;
+    background: var(--deep);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-pattern {
+    position: absolute; inset: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c9a227' fill-rule='evenodd'%3E%3Ccircle cx='40' cy='40' r='3'/%3E%3Cpath d='M0 40h80M40 0v80' stroke='%23c9a227' stroke-width='0.5' fill='none'/%3E%3Ccircle cx='0' cy='0' r='2'/%3E%3Ccircle cx='80' cy='0' r='2'/%3E%3Ccircle cx='0' cy='80' r='2'/%3E%3Ccircle cx='80' cy='80' r='2'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-text {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6rem 4rem 6rem 5rem;
+    position: relative; z-index: 2;
+  }
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem; letter-spacing: 0.2em;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 900; line-height: 1.05;
+    color: var(--ivory);
+    margin-bottom: 1.5rem;
+  }
+  .hero-title em { font-style: italic; color: var(--gold); }
+  .hero-desc {
+    font-size: 1.2rem; line-height: 1.7;
+    color: var(--ivory-dark); max-width: 460px;
+    margin-bottom: 3rem; font-weight: 300;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--gold); color: var(--deep);
+    padding: 1rem 2.5rem; text-decoration: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem; letter-spacing: 0.1em;
+    border: none; cursor: pointer;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--ivory);
+    padding: 1rem 2.5rem; text-decoration: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem; letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 4px;
+    padding: 2rem;
+    position: relative; z-index: 2;
+    animation: fadeInRight 1s ease 0.3s both;
+  }
+  @keyframes fadeInRight { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: none; } }
+
+  .tile-preview {
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 4rem;
+    min-height: 220px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  .tile-preview:hover { transform: scale(0.98); }
+  .tile-preview svg { width: 100%; height: 100%; position: absolute; inset: 0; }
+
+  .t1 { background: #1a3a5c; }
+  .t2 { background: #8b2e16; }
+  .t3 { background: #2d5a3a; }
+  .t4 { background: #4a3060; }
+
+  /* ── MARQUEE ── */
+  .marquee-bar {
+    background: var(--gold);
+    padding: 0.7rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .marquee-inner {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: var(--deep);
+  }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+  /* ── SECTION TITLES ── */
+  .section { max-width: 1400px; margin: 0 auto; padding: 5rem 2rem; }
+  .section-head {
+    display: flex; align-items: baseline; gap: 1.5rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--ivory-dark);
+    padding-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; font-weight: 700;
+    color: var(--cobalt);
+  }
+  .section-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; color: var(--text-light);
+    letter-spacing: 0.15em; text-transform: uppercase;
+  }
+
+  /* ── CATEGORIES ── */
+  .categories { background: var(--ivory); }
+  .cats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--ivory-dark);
+    border: 1px solid var(--ivory-dark);
+  }
+  .cat-card {
+    background: var(--cream);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .cat-card::before {
+    content: ''; position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px; background: var(--cobalt);
+    transform: scaleX(0); transition: transform 0.25s;
+  }
+  .cat-card:hover::before { transform: scaleX(1); }
+  .cat-card:hover { background: var(--ivory); }
+  .cat-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+  .cat-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; font-weight: 700;
+    color: var(--cobalt); margin-bottom: 0.3rem;
+  }
+  .cat-count {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; color: var(--text-light);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── PRODUCTS ── */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .product-card {
+    background: white;
+    border: 1px solid var(--ivory-dark);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-card:hover { box-shadow: 0 12px 40px rgba(26,58,92,0.12); transform: translateY(-3px); }
+  .product-badge {
+    position: absolute; top: 1rem; left: 1rem;
+    background: var(--terracotta); color: white;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.1em;
+    padding: 0.25rem 0.7rem;
+    z-index: 2;
+  }
+  .product-img {
+    width: 100%; height: 280px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-img svg { width: 100%; height: 100%; }
+  .product-info { padding: 1.5rem; }
+  .product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700;
+    color: var(--cobalt); margin-bottom: 0.4rem;
+  }
+  .product-origin {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; color: var(--text-light);
+    letter-spacing: 0.1em; margin-bottom: 0.8rem;
+  }
+  .stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 0.4rem; }
+  .review-count { font-size: 0.85rem; color: var(--text-light); margin-left: 0.4rem; }
+  .product-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 1.2rem; padding-top: 1.2rem;
+    border-top: 1px solid var(--ivory-dark);
+  }
+  .price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700;
+    color: var(--cobalt);
+  }
+  .price-old {
+    font-size: 0.9rem; color: var(--text-light);
+    text-decoration: line-through; margin-left: 0.5rem;
+    font-family: 'Crimson Pro', serif;
+  }
+  .add-btn {
+    background: var(--cobalt); color: white;
+    border: none; padding: 0.7rem 1.2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem; letter-spacing: 0.08em;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .add-btn:hover { background: var(--cobalt-light); }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(13,31,53,0.85);
+    z-index: 1000;
+    display: none; align-items: center; justify-content: center;
+    padding: 2rem;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--cream);
+    max-width: 900px; width: 100%;
+    max-height: 90vh; overflow-y: auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    position: relative;
+  }
+  .modal-close {
+    position: absolute; top: 1rem; right: 1rem;
+    background: none; border: none; font-size: 1.5rem;
+    cursor: pointer; color: var(--text-light); z-index: 10;
+    width: 2rem; height: 2rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .modal-img { background: var(--ivory); min-height: 400px; display: flex; align-items: center; justify-content: center; }
+  .modal-img svg { width: 85%; height: auto; }
+  .modal-info { padding: 2.5rem; }
+  .modal-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; color: var(--terracotta);
+    letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .modal-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; font-weight: 900;
+    color: var(--cobalt); margin-bottom: 0.5rem;
+  }
+  .modal-desc {
+    font-size: 1rem; line-height: 1.7;
+    color: var(--text-light); margin: 1.2rem 0;
+  }
+  .modal-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700;
+    color: var(--cobalt); margin: 1.5rem 0;
+  }
+  .qty-row { display: flex; gap: 0.5rem; align-items: center; margin-bottom: 1rem; }
+  .qty-btn {
+    width: 36px; height: 36px; background: var(--ivory);
+    border: 1px solid var(--ivory-dark); cursor: pointer;
+    font-size: 1.2rem; display: flex; align-items: center; justify-content: center;
+  }
+  .qty-input {
+    width: 60px; height: 36px; text-align: center;
+    border: 1px solid var(--ivory-dark); background: white;
+    font-family: 'DM Mono', monospace; font-size: 0.9rem;
+  }
+  .modal-buy {
+    width: 100%; background: var(--cobalt); color: white;
+    border: none; padding: 1rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem; letter-spacing: 0.1em;
+    cursor: pointer; transition: background 0.2s;
+    margin-bottom: 0.5rem;
+  }
+  .modal-buy:hover { background: var(--cobalt-light); }
+  .modal-fav {
+    width: 100%; background: transparent;
+    border: 1px solid var(--ivory-dark); color: var(--text-light);
+    padding: 0.8rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem; cursor: pointer;
+  }
+  .specs-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0.5rem; margin: 1.5rem 0;
+  }
+  .spec { font-size: 0.85rem; }
+  .spec-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--text-light); letter-spacing: 0.1em; display: block; }
+
+  /* ── REVIEWS ── */
+  .reviews-section { background: var(--ivory); }
+  .reviews-layout {
+    display: grid; grid-template-columns: 1fr 2fr;
+    gap: 4rem; align-items: start;
+  }
+  .rating-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem; font-weight: 900; color: var(--cobalt); line-height: 1;
+  }
+  .rating-stars { font-size: 1.2rem; color: var(--gold); margin: 0.5rem 0; }
+  .rating-total { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--text-light); letter-spacing: 0.1em; }
+  .rating-bars { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .rating-bar-row { display: flex; align-items: center; gap: 0.8rem; }
+  .rating-bar-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; width: 30px; color: var(--text-light); }
+  .rating-bar-track { flex: 1; height: 4px; background: var(--ivory-dark); border-radius: 2px; overflow: hidden; }
+  .rating-bar-fill { height: 100%; background: var(--gold); border-radius: 2px; }
+
+  .reviews-list { display: flex; flex-direction: column; gap: 1.5rem; }
+  .review-card {
+    background: white; padding: 1.8rem;
+    border-left: 3px solid var(--gold);
+  }
+  .review-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.8rem; }
+  .reviewer-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; }
+  .review-date { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--text-light); }
+  .review-product { font-size: 0.85rem; color: var(--terracotta); margin-bottom: 0.5rem; font-style: italic; }
+  .review-text { font-size: 0.95rem; line-height: 1.7; color: var(--text-light); }
+  .review-form {
+    background: white; padding: 2rem;
+    border: 1px solid var(--ivory-dark);
+    margin-top: 2rem;
+  }
+  .form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 700; color: var(--cobalt);
+    margin-bottom: 1.5rem;
+  }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .form-field { display: flex; flex-direction: column; gap: 0.3rem; }
+  .form-field label { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--text-light); letter-spacing: 0.1em; }
+  .form-field input, .form-field textarea, .form-field select {
+    border: 1px solid var(--ivory-dark); padding: 0.7rem 1rem;
+    font-family: 'Crimson Pro', serif; font-size: 0.95rem;
+    background: var(--cream); color: var(--text);
+    outline: none; transition: border-color 0.2s;
+  }
+  .form-field input:focus, .form-field textarea:focus { border-color: var(--cobalt); }
+  .star-rating { display: flex; gap: 0.3rem; font-size: 1.5rem; cursor: pointer; }
+  .star-rating span { color: var(--ivory-dark); transition: color 0.1s; }
+  .star-rating span.active { color: var(--gold); }
+  .form-submit {
+    background: var(--terracotta); color: white;
+    border: none; padding: 0.9rem 2.5rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem; letter-spacing: 0.1em;
+    cursor: pointer; transition: background 0.2s;
+    margin-top: 1rem;
+  }
+  .form-submit:hover { background: var(--terracotta-light); }
+
+  /* ── CART SIDEBAR ── */
+  .cart-sidebar {
+    position: fixed; top: 0; right: -420px;
+    width: 420px; height: 100vh;
+    background: var(--cream);
+    border-left: 1px solid var(--ivory-dark);
+    z-index: 500;
+    transition: right 0.3s ease;
+    display: flex; flex-direction: column;
+    box-shadow: -8px 0 30px rgba(0,0,0,0.12);
+  }
+  .cart-sidebar.open { right: 0; }
+  .cart-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--ivory-dark);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .cart-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--cobalt); }
+  .cart-close { background: none; border: none; font-size: 1.3rem; cursor: pointer; color: var(--text-light); }
+  .cart-items { flex: 1; overflow-y: auto; padding: 1.5rem 2rem; }
+  .cart-item {
+    display: grid; grid-template-columns: 60px 1fr auto;
+    gap: 1rem; padding: 1rem 0;
+    border-bottom: 1px solid var(--ivory-dark);
+    align-items: center;
+  }
+  .cart-item-thumb {
+    width: 60px; height: 60px; background: var(--ivory);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+  }
+  .cart-item-name { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: var(--cobalt); }
+  .cart-item-price { font-family: 'DM Mono', monospace; font-size: 0.85rem; color: var(--text-light); }
+  .cart-remove { background: none; border: none; color: var(--text-light); cursor: pointer; font-size: 0.9rem; }
+  .cart-remove:hover { color: var(--terracotta); }
+  .cart-footer {
+    padding: 1.5rem 2rem;
+    border-top: 2px solid var(--cobalt);
+  }
+  .cart-total-row { display: flex; justify-content: space-between; margin-bottom: 1rem; }
+  .cart-total-label { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--text-light); letter-spacing: 0.1em; }
+  .cart-total-price { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; color: var(--cobalt); }
+  .checkout-btn {
+    width: 100%; background: var(--cobalt); color: white;
+    border: none; padding: 1rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem; letter-spacing: 0.1em;
+    cursor: pointer; transition: background 0.2s;
+  }
+  .checkout-btn:hover { background: var(--cobalt-light); }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(80px);
+    background: var(--cobalt); color: white;
+    padding: 0.8rem 2rem;
+    font-family: 'DM Mono', monospace; font-size: 0.8rem; letter-spacing: 0.08em;
+    z-index: 2000; transition: transform 0.3s;
+    border-left: 3px solid var(--gold);
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* ── BANNER ── */
+  .promo-banner {
+    background: var(--cobalt);
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .promo-pattern {
+    position: absolute; inset: 0;
+    opacity: 0.05;
+    background-image: repeating-linear-gradient(
+      45deg,
+      var(--gold) 0,
+      var(--gold) 1px,
+      transparent 0,
+      transparent 50%
+    );
+    background-size: 20px 20px;
+  }
+  .promo-text {
+    position: relative; z-index: 1;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem; font-weight: 900; color: var(--ivory);
+  }
+  .promo-text em { color: var(--gold); font-style: italic; }
+  .promo-sub {
+    font-size: 1.1rem; color: var(--ivory-dark);
+    margin: 1rem 0 2rem;
+    position: relative; z-index: 1;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep);
+    color: var(--ivory-dark);
+    padding: 4rem 2rem 2rem;
+  }
+  .footer-grid {
+    max-width: 1400px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem; margin-bottom: 3rem;
+  }
+  .footer-brand .logo { font-size: 1.4rem; display: block; margin-bottom: 1rem; }
+  .footer-desc { font-size: 0.9rem; line-height: 1.7; color: rgba(245,240,232,0.6); }
+  .footer-col h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.2em;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+  .footer-col a {
+    display: block; color: rgba(245,240,232,0.6);
+    text-decoration: none; font-size: 0.9rem;
+    margin-bottom: 0.6rem; transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--ivory); }
+  .footer-bottom {
+    max-width: 1400px; margin: 0 auto;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 2rem;
+    display: flex; justify-content: space-between;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; color: rgba(245,240,232,0.4);
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-visual { display: none; }
+    .hero-text { padding: 4rem 2rem; }
+    .products-grid { grid-template-columns: 1fr 1fr; }
+    .cats-grid { grid-template-columns: 1fr 1fr; }
+    .reviews-layout { grid-template-columns: 1fr; }
+    .modal { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    nav a:not(.cart-btn) { display: none; }
+  }
+  @media (max-width: 600px) {
+    .products-grid { grid-template-columns: 1fr; }
+    .cats-grid { grid-template-columns: 1fr 1fr; }
+    .cart-sidebar { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#">ÇİNİ <span>DÜNYASI</span></a>
+    <nav>
+      <a href="#urunler">Ürünler</a>
+      <a href="#kategoriler">Kategoriler</a>
+      <a href="#yorumlar">Yorumlar</a>
+      <a href="#iletisim">İletişim</a>
+      <a href="#" class="cart-btn" onclick="toggleCart(event)">🛒 Sepet (<span id="cart-count">0</span>)</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-text" style="animation: fadeInLeft 0.9s ease both">
+    <p class="hero-tag">El Yapımı · Geleneksel · Eşsiz</p>
+    <h1 class="hero-title">Her Çinide<br>Bir <em>Hikâye</em><br>Gizlidir</h1>
+    <p class="hero-desc">Yüzyıllık Osmanlı ve Selçuklu motiflerinden ilham alan, ustalar tarafından elle boyanan özgün çini koleksiyonumuz.</p>
+    <div class="hero-cta">
+      <a href="#urunler" class="btn-primary">Koleksiyonu İncele</a>
+      <a href="#yorumlar" class="btn-outline">Müşteri Yorumları</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <!-- Tile 1: Cobalt İznik -->
+    <div class="tile-preview t1">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <rect fill="#1a3a5c" width="200" height="200"/>
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#c9a227" stroke-width="2"/>
+        <circle cx="100" cy="100" r="50" fill="none" stroke="#c9a227" stroke-width="1"/>
+        <path d="M100 30 L115 70 L100 60 L85 70Z" fill="#c9a227"/>
+        <path d="M100 170 L115 130 L100 140 L85 130Z" fill="#c9a227"/>
+        <path d="M30 100 L70 85 L60 100 L70 115Z" fill="#c9a227"/>
+        <path d="M170 100 L130 85 L140 100 L130 115Z" fill="#c9a227"/>
+        <circle cx="100" cy="100" r="20" fill="#c9a227" opacity="0.3"/>
+        <circle cx="100" cy="100" r="8" fill="#c9a227"/>
+        <path d="M60 60 Q100 40 140 60 Q160 100 140 140 Q100 160 60 140 Q40 100 60 60Z" fill="none" stroke="#4a7ac8" stroke-width="1.5"/>
+      </svg>
+    </div>
+    <!-- Tile 2: Kırmızı Çiçek -->
+    <div class="tile-preview t2">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <rect fill="#8b2e16" width="200" height="200"/>
+        <g fill="#e8884a">
+          <circle cx="100" cy="60" r="18"/>
+          <circle cx="100" cy="140" r="18"/>
+          <circle cx="60" cy="100" r="18"/>
+          <circle cx="140" cy="100" r="18"/>
+          <circle cx="72" cy="72" r="14"/>
+          <circle cx="128" cy="72" r="14"/>
+          <circle cx="72" cy="128" r="14"/>
+          <circle cx="128" cy="128" r="14"/>
+        </g>
+        <circle cx="100" cy="100" r="22" fill="#c9a227"/>
+        <circle cx="100" cy="100" r="12" fill="#8b2e16"/>
+        <line x1="100" y1="0" x2="100" y2="200" stroke="#c9a227" stroke-width="1" opacity="0.4"/>
+        <line x1="0" y1="100" x2="200" y2="100" stroke="#c9a227" stroke-width="1" opacity="0.4"/>
+      </svg>
+    </div>
+    <!-- Tile 3: Yeşil Rumi -->
+    <div class="tile-preview t3">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <rect fill="#2d5a3a" width="200" height="200"/>
+        <path d="M100 20 C130 50 180 70 160 100 C180 130 130 150 100 180 C70 150 20 130 40 100 C20 70 70 50 100 20Z" fill="#4a8a5a" opacity="0.7"/>
+        <path d="M100 40 C120 60 155 75 140 100 C155 125 120 140 100 160 C80 140 45 125 60 100 C45 75 80 60 100 40Z" fill="none" stroke="#c9a227" stroke-width="2"/>
+        <circle cx="100" cy="100" r="15" fill="#c9a227"/>
+        <circle cx="100" cy="100" r="7" fill="#2d5a3a"/>
+        <path d="M100 55 L106 90 L100 85 L94 90Z" fill="#c9a227"/>
+        <path d="M100 145 L106 110 L100 115 L94 110Z" fill="#c9a227"/>
+      </svg>
+    </div>
+    <!-- Tile 4: Mor Geometrik -->
+    <div class="tile-preview t4">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <rect fill="#4a3060" width="200" height="200"/>
+        <polygon points="100,20 180,80 155,165 45,165 20,80" fill="none" stroke="#c9a227" stroke-width="2"/>
+        <polygon points="100,40 160,88 140,150 60,150 40,88" fill="none" stroke="#c9a227" stroke-width="1" opacity="0.5"/>
+        <polygon points="100,60 140,94 125,140 75,140 60,94" fill="#7a5090" opacity="0.5"/>
+        <circle cx="100" cy="100" r="20" fill="#c9a227" opacity="0.2"/>
+        <circle cx="100" cy="100" r="8" fill="#c9a227"/>
+        <line x1="100" y1="20" x2="100" y2="180" stroke="#c9a227" stroke-width="0.5" opacity="0.3"/>
+        <line x1="20" y1="100" x2="180" y2="100" stroke="#c9a227" stroke-width="0.5" opacity="0.3"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-inner">
+    ✦ ÜCRETSİZ KARGO — 500₺ VE ÜZERİ &nbsp;&nbsp;&nbsp; ✦ EL YAPIMI GARANTİ &nbsp;&nbsp;&nbsp; ✦ KÜTAHYA'NIN EN SEÇKİN ÇİNİLERİ &nbsp;&nbsp;&nbsp; ✦ 30 GÜN İADE HAKKI &nbsp;&nbsp;&nbsp; ✦ ÜCRETSİZ KARGO — 500₺ VE ÜZERİ &nbsp;&nbsp;&nbsp; ✦ EL YAPIMI GARANTİ &nbsp;&nbsp;&nbsp; ✦ KÜTAHYA'NIN EN SEÇKİN ÇİNİLERİ &nbsp;&nbsp;&nbsp; ✦ 30 GÜN İADE HAKKI &nbsp;&nbsp;&nbsp;
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="categories">
+  <div class="section" id="kategoriler">
+    <div class="section-head">
+      <h2 class="section-title">Koleksiyonlar</h2>
+      <span class="section-tag">Tüm Kategoriler</span>
+    </div>
+    <div class="cats-grid">
+      <div class="cat-card" onclick="filterProducts('iznik')">
+        <span class="cat-icon">🔵</span>
+        <div class="cat-name">İznik Motifi</div>
+        <div class="cat-count">24 ürün</div>
+      </div>
+      <div class="cat-card" onclick="filterProducts('cicek')">
+        <span class="cat-icon">🌸</span>
+        <div class="cat-name">Çiçek Deseni</div>
+        <div class="cat-count">18 ürün</div>
+      </div>
+      <div class="cat-card" onclick="filterProducts('geometrik')">
+        <span class="cat-icon">🔷</span>
+        <div class="cat-name">Geometrik</div>
+        <div class="cat-count">32 ürün</div>
+      </div>
+      <div class="cat-card" onclick="filterProducts('osmanlı')">
+        <span class="cat-icon">✨</span>
+        <div class="cat-name">Osmanlı Klasikleri</div>
+        <div class="cat-count">15 ürün</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="urunler">
+  <div class="section">
+    <div class="section-head">
+      <h2 class="section-title">Öne Çıkan Ürünler</h2>
+      <span class="section-tag">El Seçimi Koleksiyon</span>
+    </div>
+    <div class="products-grid" id="products-grid">
+    </div>
+    <div id="empty-products" style="text-align:center; padding:4rem 2rem; color:var(--text-light);">
+      <div style="font-size:3rem; margin-bottom:1rem;">🏺</div>
+      <div style="font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--cobalt); margin-bottom:0.5rem;">Henüz ürün eklenmedi</div>
+      <div style="font-family:'DM Mono',monospace; font-size:0.8rem; letter-spacing:0.1em;">Yakında yeni koleksiyonlar burada olacak.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMO BANNER -->
+<div class="promo-banner">
+  <div class="promo-pattern"></div>
+  <div class="promo-text">Özel Tasarım İstiyorsanız<br><em>Bize Yazın</em></div>
+  <p class="promo-sub">Düğün, hediye veya iç dekorasyon için kişisel tasarım hizmeti sunuyoruz.</p>
+  <a href="#iletisim" class="btn-primary">Teklif Al</a>
+</div>
+
+<!-- REVIEWS -->
+<section class="reviews-section" id="yorumlar">
+  <div class="section">
+    <div class="section-head">
+      <h2 class="section-title">Müşteri Yorumları</h2>
+      <span class="section-tag">Gerçek Deneyimler</span>
+    </div>
+    <div class="reviews-layout">
+      <!-- Rating Summary -->
+      <div>
+        <div class="rating-big" id="avg-rating">—</div>
+        <div class="rating-stars" id="avg-stars">☆☆☆☆☆</div>
+        <div class="rating-total" id="total-reviews">0 değerlendirme</div>
+        <div class="rating-bars">
+          <div class="rating-bar-row">
+            <span class="rating-bar-label">5 ★</span>
+            <div class="rating-bar-track"><div class="rating-bar-fill" id="bar5" style="width:0%"></div></div>
+          </div>
+          <div class="rating-bar-row">
+            <span class="rating-bar-label">4 ★</span>
+            <div class="rating-bar-track"><div class="rating-bar-fill" id="bar4" style="width:0%"></div></div>
+          </div>
+          <div class="rating-bar-row">
+            <span class="rating-bar-label">3 ★</span>
+            <div class="rating-bar-track"><div class="rating-bar-fill" id="bar3" style="width:0%"></div></div>
+          </div>
+          <div class="rating-bar-row">
+            <span class="rating-bar-label">2 ★</span>
+            <div class="rating-bar-track"><div class="rating-bar-fill" id="bar2" style="width:0%"></div></div>
+          </div>
+          <div class="rating-bar-row">
+            <span class="rating-bar-label">1 ★</span>
+            <div class="rating-bar-track"><div class="rating-bar-fill" id="bar1" style="width:0%"></div></div>
+          </div>
+        </div>
+
+        <!-- Review Form -->
+        <div class="review-form" style="margin-top:2.5rem">
+          <div class="form-title">Yorum Yaz</div>
+          <div class="form-grid">
+            <div class="form-field">
+              <label>ADINIZ</label>
+              <input type="text" placeholder="Ahmet Yılmaz" id="r-name">
+            </div>
+            <div class="form-field">
+              <label>E-POSTA</label>
+              <input type="email" placeholder="ahmet@mail.com" id="r-email">
+            </div>
+          </div>
+          <div class="form-field" style="margin-bottom:1rem">
+            <label>ÜRÜN ADI</label>
+            <input type="text" placeholder="Satın aldığınız ürünün adı" id="r-product">
+          </div>
+          <div class="form-field" style="margin-bottom:1rem">
+            <label>PUANINIZ</label>
+            <div class="star-rating" id="star-rating">
+              <span onclick="setRating(1)">★</span>
+              <span onclick="setRating(2)">★</span>
+              <span onclick="setRating(3)">★</span>
+              <span onclick="setRating(4)">★</span>
+              <span onclick="setRating(5)">★</span>
+            </div>
+          </div>
+          <div class="form-field">
+            <label>YORUMUNUZ</label>
+            <textarea rows="4" placeholder="Ürün hakkında düşüncelerinizi paylaşın..." id="r-text"></textarea>
+          </div>
+          <button class="form-submit" onclick="submitReview()">Yorum Gönder</button>
+        </div>
+      </div>
+
+      <!-- Reviews List -->
+      <div>
+        <div class="reviews-list" id="reviews-list">
+          <div id="no-reviews" style="text-align:center; padding:3rem 2rem; color:var(--text-light);">
+            <div style="font-size:2.5rem; margin-bottom:1rem;">💬</div>
+            <div style="font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--cobalt); margin-bottom:0.4rem;">Henüz yorum yok</div>
+            <div style="font-family:'DM Mono',monospace; font-size:0.75rem; letter-spacing:0.1em;">İlk yorumu siz yazın!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="iletisim" style="background: var(--deep); padding: 5rem 2rem;">
+  <div style="max-width:700px; margin:0 auto; text-align:center;">
+    <p style="font-family:'DM Mono',monospace; font-size:0.75rem; letter-spacing:0.2em; color:var(--gold); margin-bottom:1rem;">İLETİŞİM</p>
+    <h2 style="font-family:'Playfair Display',serif; font-size:2.5rem; color:var(--ivory); margin-bottom:1rem;">Bize Ulaşın</h2>
+    <p style="color:var(--ivory-dark); font-size:1.1rem; margin-bottom:3rem;">Özel tasarım, toplu sipariş veya herhangi bir sorunuz için.</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.5rem; margin-bottom:3rem; text-align:left;">
+      <div style="background:rgba(255,255,255,0.05); padding:1.5rem; border-left:2px solid var(--gold);">
+        <div style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.5rem;">ADRES</div>
+        <div style="color:var(--ivory-dark); font-size:0.9rem;">Kütahya Çarşı Mah.<br>Çini Sokak No:12</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.05); padding:1.5rem; border-left:2px solid var(--gold);">
+        <div style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.5rem;">TELEFON</div>
+        <div style="color:var(--ivory-dark); font-size:0.9rem;">+90 274 000 00 00<br>Hf-içi 09:00–18:00</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.05); padding:1.5rem; border-left:2px solid var(--gold);">
+        <div style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.5rem;">E-POSTA</div>
+        <div style="color:var(--ivory-dark); font-size:0.9rem;">info@cinidünyası.com<br>24 saat içinde dönüş</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <div class="form-field" style="flex:1; min-width:220px; text-align:left;">
+        <label style="color:rgba(245,240,232,0.5); font-family:'DM Mono',monospace; font-size:0.7rem; letter-spacing:0.1em; display:block; margin-bottom:0.3rem;">ADINIZ</label>
+        <input type="text" placeholder="Adınız Soyadınız" style="width:100%; border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.05); color:var(--ivory); padding:0.8rem 1rem; font-family:'Crimson Pro',serif; outline:none;">
+      </div>
+      <div class="form-field" style="flex:1; min-width:220px; text-align:left;">
+        <label style="color:rgba(245,240,232,0.5); font-family:'DM Mono',monospace; font-size:0.7rem; letter-spacing:0.1em; display:block; margin-bottom:0.3rem;">E-POSTA</label>
+        <input type="email" placeholder="email@adresiniz.com" style="width:100%; border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.05); color:var(--ivory); padding:0.8rem 1rem; font-family:'Crimson Pro',serif; outline:none;">
+      </div>
+    </div>
+    <div class="form-field" style="margin-top:1rem; text-align:left;">
+      <label style="color:rgba(245,240,232,0.5); font-family:'DM Mono',monospace; font-size:0.7rem; letter-spacing:0.1em; display:block; margin-bottom:0.3rem;">MESAJINIZ</label>
+      <textarea rows="4" placeholder="Mesajınızı buraya yazın..." style="width:100%; border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.05); color:var(--ivory); padding:0.8rem 1rem; font-family:'Crimson Pro',serif; outline:none; resize:vertical;"></textarea>
+    </div>
+    <button class="btn-primary" style="margin-top:1.5rem;" onclick="showToast('Mesajınız gönderildi! En kısa sürede size dönüş yapacağız.')">Gönder</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="#">ÇİNİ <span>DÜNYASI</span></a>
+      <p class="footer-desc">Kütahya'nın köklü çini geleneğini modern bir yorumla yaşatan, el yapımı özgün çini koleksiyonları sunan bir sanat atölyesi.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Koleksiyonlar</h4>
+      <a href="#">İznik Motifi</a>
+      <a href="#">Çiçek Deseni</a>
+      <a href="#">Geometrik</a>
+      <a href="#">Osmanlı Klasikleri</a>
+    </div>
+    <div class="footer-col">
+      <h4>Hizmetler</h4>
+      <a href="#">Özel Tasarım</a>
+      <a href="#">Toplu Sipariş</a>
+      <a href="#">Kurumsal Hediye</a>
+      <a href="#">İhracat</a>
+    </div>
+    <div class="footer-col">
+      <h4>Bilgi</h4>
+      <a href="#">Hakkımızda</a>
+      <a href="#">Kargo & İade</a>
+      <a href="#">Gizlilik Politikası</a>
+      <a href="#">SSS</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Çini Dünyası. Tüm hakları saklıdır.</span>
+    <span>KÜTAHYA · EL YAPIMI · GELENEKSELDen İLHAMLI</span>
+  </div>
+</footer>
+
+<!-- CART SIDEBAR -->
+<div class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header">
+    <div class="cart-title">Sepetiniz</div>
+    <button class="cart-close" onclick="toggleCart(event)">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items">
+    <p style="color:var(--text-light); font-size:0.9rem; text-align:center; padding:2rem 0;">Sepetiniz boş.</p>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total-row">
+      <span class="cart-total-label">TOPLAM</span>
+      <span class="cart-total-price" id="cart-total">₺0</span>
+    </div>
+    <button class="checkout-btn" onclick="showToast('Ödeme sayfasına yönlendiriliyorsunuz...')">Satın Al →</button>
+  </div>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal" id="modal-content">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-img" id="modal-img"></div>
+    <div class="modal-info">
+      <div class="modal-tag" id="modal-tag">KÜTAHYA · EL YAPIMI</div>
+      <div class="modal-name" id="modal-name">Ürün Adı</div>
+      <div style="color:var(--gold)" id="modal-stars">★★★★★</div>
+      <div class="modal-desc" id="modal-desc">Açıklama</div>
+      <div class="specs-grid" id="modal-specs"></div>
+      <div class="modal-price" id="modal-price">₺0</div>
+      <div class="qty-row">
+        <button class="qty-btn" onclick="changeQty(-1)">−</button>
+        <input class="qty-input" type="number" value="1" min="1" id="modal-qty">
+        <button class="qty-btn" onclick="changeQty(1)">+</button>
+      </div>
+      <button class="modal-buy" id="modal-buy-btn">Sepete Ekle</button>
+      <button class="modal-fav">♡ Favorilere Ekle</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+  // Product data — buraya kendi ürünlerinizi ekleyin
+  const products = [];
+
+  let cart = [];
+  let currentRating = 0;
+  let currentProductIndex = 0;
+  let reviewData = { total: 0, sum: 0, counts: {1:0,2:0,3:0,4:0,5:0} };
+
+  // MODAL
+  function openModal(i) {
+    currentProductIndex = i;
+    const p = products[i];
+    document.getElementById('modal-tag').textContent = p.tag;
+    document.getElementById('modal-name').textContent = p.name;
+    document.getElementById('modal-stars').textContent = p.stars;
+    document.getElementById('modal-desc').textContent = p.desc;
+    document.getElementById('modal-price').textContent = '₺' + p.price.toLocaleString('tr-TR');
+    const specsEl = document.getElementById('modal-specs');
+    specsEl.innerHTML = p.specs.map(([l,v]) => `<div class="spec"><span class="spec-label">${l}</span>${v}</div>`).join('');
+    document.getElementById('modal-img').innerHTML = document.querySelectorAll('.product-img')[i].innerHTML;
+    document.getElementById('modal-qty').value = 1;
+    document.getElementById('modal-buy-btn').onclick = () => {
+      const qty = parseInt(document.getElementById('modal-qty').value) || 1;
+      for (let j = 0; j < qty; j++) addToCart(p.name, p.price, p.icon);
+      closeModal();
+    };
+    document.getElementById('modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(e) {
+    if (!e || e.target === document.getElementById('modal') || e.currentTarget.classList.contains('modal-close')) {
+      document.getElementById('modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+  function changeQty(d) {
+    const inp = document.getElementById('modal-qty');
+    inp.value = Math.max(1, (parseInt(inp.value)||1) + d);
+  }
+
+  // CART
+  function addToCart(name, price, icon) {
+    const existing = cart.find(i => i.name === name);
+    if (existing) existing.qty++;
+    else cart.push({ name, price, icon, qty: 1 });
+    updateCart();
+    showToast(`"${name}" sepete eklendi!`);
+    document.getElementById('cart-sidebar').classList.add('open');
+  }
+  function updateCart() {
+    const count = cart.reduce((s,i) => s+i.qty, 0);
+    const total = cart.reduce((s,i) => s+i.price*i.qty, 0);
+    document.getElementById('cart-count').textContent = count;
+    document.getElementById('cart-total').textContent = '₺' + total.toLocaleString('tr-TR');
+    const el = document.getElementById('cart-items');
+    if (!cart.length) { el.innerHTML = '<p style="color:var(--text-light);font-size:0.9rem;text-align:center;padding:2rem 0;">Sepetiniz boş.</p>'; return; }
+    el.innerHTML = cart.map((item, idx) => `
+      <div class="cart-item">
+        <div class="cart-item-thumb">${item.icon}</div>
+        <div>
+          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-price">₺${item.price.toLocaleString('tr-TR')} × ${item.qty}</div>
+        </div>
+        <button class="cart-remove" onclick="removeFromCart(${idx})">✕</button>
+      </div>
+    `).join('');
+  }
+  function removeFromCart(idx) {
+    cart.splice(idx, 1);
+    updateCart();
+  }
+  function toggleCart(e) {
+    if (e) e.preventDefault();
+    document.getElementById('cart-sidebar').classList.toggle('open');
+  }
+
+  // REVIEWS
+  function setRating(n) {
+    currentRating = n;
+    document.querySelectorAll('#star-rating span').forEach((s, i) => {
+      s.classList.toggle('active', i < n);
+    });
+  }
+  function submitReview() {
+    const name = document.getElementById('r-name').value.trim();
+    const text = document.getElementById('r-text').value.trim();
+    const product = document.getElementById('r-product').value;
+    if (!name || !text || !currentRating) { showToast('Lütfen tüm alanları doldurun!'); return; }
+    const today = new Date().toLocaleDateString('tr-TR', { day:'numeric', month:'long', year:'numeric' });
+    const stars = '★'.repeat(currentRating) + '☆'.repeat(5 - currentRating);
+    const card = document.createElement('div');
+    card.className = 'review-card';
+    card.innerHTML = `
+      <div class="review-header">
+        <div><div class="reviewer-name">${name}</div><div class="review-product">${product}</div></div>
+        <div><div style="color:var(--gold)">${stars}</div><div class="review-date">${today}</div></div>
+      </div>
+      <div class="review-text">${text}</div>`;
+    const noReviews = document.getElementById('no-reviews');
+    if (noReviews) noReviews.remove();
+    document.getElementById('reviews-list').prepend(card);
+
+    // Update stats
+    reviewData.total++;
+    reviewData.sum += currentRating;
+    reviewData.counts[currentRating]++;
+    const avg = (reviewData.sum / reviewData.total).toFixed(1);
+    document.getElementById('avg-rating').textContent = avg;
+    document.getElementById('avg-stars').textContent = '★'.repeat(Math.round(avg)) + '☆'.repeat(5 - Math.round(avg));
+    document.getElementById('total-reviews').textContent = reviewData.total + ' değerlendirme';
+    for (let i = 1; i <= 5; i++) {
+      document.getElementById('bar'+i).style.width = (reviewData.counts[i]/reviewData.total*100)+'%';
+    }
+
+    document.getElementById('r-name').value = '';
+    document.getElementById('r-email').value = '';
+    document.getElementById('r-text').value = '';
+    currentRating = 0;
+    document.querySelectorAll('#star-rating span').forEach(s => s.classList.remove('active'));
+    showToast('Yorumunuz eklendi, teşekkürler!');
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // FILTER
+  function filterProducts(cat) {
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.style.display = card.dataset.cat === cat ? 'block' : 'none';
+    });
+    document.getElementById('urunler').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => document.querySelectorAll('.product-card').forEach(c => c.style.display = 'block'), 3000);
+  }
+
+  // TOAST
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  // Hero animation
+  document.querySelector('.hero-text').style.animation = 'fadeInLeft 0.9s ease both';
+  const style = document.createElement('style');
+  style.textContent = '@keyframes fadeInLeft { from { opacity:0; transform:translateX(-30px); } to { opacity:1; transform:none; } }';
+  document.head.appendChild(style);
+</script>
+</body>
+</html>
